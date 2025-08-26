@@ -16,7 +16,8 @@ pipeline {
         }
         stage('Build Image') {
             steps {
-                sh 'mkdir -p $DOCKER_CONFIG docker build -t jenkins-demo-app:latest .'
+                sh 'mkdir -p $DOCKER_CONFIG'
+                sh 'docker build -t jenkins-demo-app:latest .'
             }
         }
         stage('Run Container') {
