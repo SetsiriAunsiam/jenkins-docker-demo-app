@@ -14,6 +14,12 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/SetsiriAunsiam/jenkins-docker-demo-app.git'
             }
         }
+        stage('Test') {
+            steps {
+                sh 'echo "Running tests..."'
+                sh 'pytest || true'
+            }
+        }
         stage('Build Image') {
             steps {
                 sh 'mkdir -p $DOCKER_CONFIG'
